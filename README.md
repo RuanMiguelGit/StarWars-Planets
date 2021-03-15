@@ -83,9 +83,9 @@ Este repositório já contém um _template_ de uma aplicação React criado e co
 ## Antes de começar a desenvolver
 
 1. Clone o repositório
-  * `git clone git@github.com:tryber/sd-0x-project-starwars-planets-search.git`.
+  * `git clone git@github.com:tryber/sd-08-project-starwars-planets-search.git`.
   * Entre na pasta do repositório que você acabou de clonar:
-    * `cd sd-0x-project-starwars-planets-search`
+    * `cd sd-08-project-starwars-planets-search`
 
 2. Instale as dependências e inicialize o projeto
   * Instale as dependências:
@@ -127,7 +127,7 @@ Para **"entregar"** seu projeto, siga os passos a seguir:
 * Vá até a página **DO SEU** _Pull Request_, adicione a label de _"code-review"_ e marque seus colegas
   * No menu à direita, clique no _link_ **"Labels"** e escolha a _label_ **code-review**
   * No menu à direita, clique no _link_ **"Assignees"** e escolha **o seu usuário**
-  * No menu à direita, clique no _link_ **"Reviewers"** e digite `students`, selecione o time `tryber/students-sd-0x`
+  * No menu à direita, clique no _link_ **"Reviewers"** e digite `students`, selecione o time `tryber/students-sd-08`
 
 ### Revisando um pull request
 
