@@ -46,10 +46,6 @@ export default function Table() {
                 <td>{item.url}</td>
               </tr>))}
         </tbody>
-
-        {/* //        data.map(item => Object.keys( item))
-
-//     } */}
       </table>
     </div>
 

@@ -4,6 +4,7 @@ import DataContext from './DataContext';
 
 function DataProvider({ children }) {
   const [data, setData] = useState([]);
+  const [q, setQ] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -14,9 +15,22 @@ function DataProvider({ children }) {
     setIsLoading(false);
   }, []);
 
+  useEffect(() => {
+    if (q !== '') {
+      const info = data.filter((i) => i.name.toLowerCase().includes(q.toLowerCase()));
+      setData(info);
+    } else {
+      setIsLoading(true);
+      fetch('https://swapi-trybe.herokuapp.com/api/planets/')
+        .then((response) => response.json())
+        .then((json) => setData((json.results)));
+      setIsLoading(false);
+    }
+  }, [q]);
+
   return (
 
-    <DataContext.Provider value={ { data, isLoading } }>
+    <DataContext.Provider value={ { data, isLoading, q, setQ } }>
       {children}
     </DataContext.Provider>
   );
