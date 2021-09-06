@@ -4,6 +4,8 @@ import DataContext from './DataContext';
 
 function DataProvider({ children }) {
   const [data, setData] = useState([]);
+  const [filtered, setFiltered] = useState([]);
+  const [deleted, setDeleted] = useState([])
   const [q, setQ] = useState('');
   const [column, setColumn] = useState('population');
   const [range, setRange] = useState('maior que');
@@ -34,6 +36,26 @@ function DataProvider({ children }) {
   useEffect(() => {
     DataFilter();
   }, [q]);
+
+  useEffect(() => {
+
+ let val = filtered.coluna   
+if(filtered.range === "igual a") {
+  setData(data.filter((i) => parseFloat(i.val) === parseFloat(filtered.number)))};
+
+// if(filtered.filter(item=> item.range === "maior que")) {
+//     setData(data.filter((i) => parseFloat(i.filtered.column) > parseFloat(number)))};
+// if(filtered.filter(item => item.range) === "menor que") {
+//  setData(data.filter((i) => parseFloat(i.filtered.column) < parseFloat(number)))};
+// console.log(data)
+console.log(filtered.coluna)
+  }, [filtered]);
+
+  console.log(data)
+
+  useEffect(() => {
+    console.log(deleted)
+  }, [deleted]);
 
   function populationFilter() {
     if (column === 'population' && range === 'igual a') {
@@ -95,6 +117,8 @@ function DataProvider({ children }) {
     } else if (number.length === 0) DataFilter();
   }
 
+ 
+
   function Filter() {
     populationFilter();
     orbitalFilter();
@@ -117,7 +141,12 @@ function DataProvider({ children }) {
         setRange,
         number,
         setNumber,
-        Filter } }
+        Filter,
+        deleted,
+        setDeleted,
+        filtered, 
+        setFiltered
+         } }
     >
       {children}
     </DataContext.Provider>

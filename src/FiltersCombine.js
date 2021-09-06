@@ -10,6 +10,11 @@ export default function FiltersCombine() {
     number,
     setNumber,
     Filter,
+    deleted, 
+    setDeleted,
+    filtered,
+    setFiltered
+    
   } = useContext(DataContext);
 
   function columnHandler(e) {
@@ -32,7 +37,6 @@ export default function FiltersCombine() {
       <label htmlFor="select-input">
         Filtrar por Colunas
         <select
-          id="select-input"
           name="select"
           value={ column }
           onChange={ columnHandler }
@@ -50,7 +54,6 @@ export default function FiltersCombine() {
       <label htmlFor="select-input-Range">
         Faixa de Valor
         <select
-          id="select-input-Range"
           name="select-Range"
           value={ range }
           onChange={ rangeHandler }
@@ -64,7 +67,7 @@ export default function FiltersCombine() {
       </label>
 
       <input
-        data-testid="value-filter"
+        data-testid ="input-filter"
         type="number"
         placeholder="number"
         value={ number }
@@ -74,9 +77,17 @@ export default function FiltersCombine() {
       <button
         data-testid="button-filter"
         type="button"
-        onClick={ Filter }
+        onClick={ () => setFiltered({coluna:column, range:range, number: number, }) } 
+        // Filter
       >
         Adicionar Filtro
+      </button>
+      <button
+        data-testid="button-filter"
+        type="button"
+        onClick={ () => setDeleted([{column, range, number, Filter}]) }
+      >
+        Delete
       </button>
     </div>
   );
