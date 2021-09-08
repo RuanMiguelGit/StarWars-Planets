@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import DataContext from './DataContext';
+import './App.css';
 
 export default function FiltersCombine() {
   const {
@@ -10,11 +11,11 @@ export default function FiltersCombine() {
     number,
     setNumber,
     Filter,
-    deleted, 
+    deleted,
     setDeleted,
     filtered,
     setFiltered
-    
+
   } = useContext(DataContext);
 
   function columnHandler(e) {
@@ -34,12 +35,13 @@ export default function FiltersCombine() {
 
   return (
     <div>
-      <label htmlFor="select-input">
+      <label className='box' htmlFor="select-input">
         Filtrar por Colunas
         <select
+          className='box select'
           name="select"
-          value={ column }
-          onChange={ columnHandler }
+          value={column}
+          onChange={columnHandler}
           data-testid="column-filter"
         >
           <option value="population">population</option>
@@ -55,8 +57,8 @@ export default function FiltersCombine() {
         Faixa de Valor
         <select
           name="select-Range"
-          value={ range }
-          onChange={ rangeHandler }
+          value={range}
+          onChange={rangeHandler}
           data-testid="comparison-filter"
         >
           <option value="maior que">maior que</option>
@@ -67,25 +69,28 @@ export default function FiltersCombine() {
       </label>
 
       <input
-        data-testid ="input-filter"
+        className='Input'
+        data-testid="input-filter"
         type="number"
         placeholder="number"
-        value={ number }
-        onChange={ numberHandler }
+        value={number}
+        onChange={numberHandler}
       />
 
       <button
+        className='ButtonS'
         data-testid="button-filter"
         type="button"
-        onClick={ () => setFiltered({coluna:column, range:range, number: number, }) } 
-        // Filter
+        onClick={() => setFiltered({ coluna: column, range: range, number: number, })}
+      // Filter
       >
         Adicionar Filtro
       </button>
       <button
+        className='ButtonD'
         data-testid="button-filter"
         type="button"
-        onClick={ () => setDeleted([{column, range, number, Filter}]) }
+        onClick={() => setDeleted([{ column, range, number, Filter }])}
       >
         Delete
       </button>
